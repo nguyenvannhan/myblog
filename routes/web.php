@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', 'AccountController@getLogin')->name('get_login_route');
+Route::post('/login', 'AccountController@postLogin')->name('post_login_route');
+Route::get('/register', 'AccountController@getRegister')->name('get_register_route');
+Route::post('/register', 'AccountConotroller@postRegister')->name('poste_register_route');
+
+Route::get('/home', 'HomeController@index')->name('home');
