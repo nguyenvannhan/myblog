@@ -1,7 +1,15 @@
 #starter-page {
     height: 100vh;
 
+    &:hover {
+        background-color: #000;
+    }
+
     .container {
         height: 100%;
+
+        p {
+            font-size: 18px;
+        }
     }
 }
