@@ -1,0 +1,48 @@
+#sidebar #side-menu ul.nav {
+  width: 100%;
+}
+
+#sidebar #side-menu ul.nav li {
+  width: 100%;
+}
+
+#sidebar #side-menu ul.nav > li {
+  font-size: 1rem;
+}
+
+#sidebar #side-menu ul.nav > li:hover {
+  background-color: #8c8c8c;
+}
+
+#sidebar #side-menu .menu-children {
+  background-color: #494949;
+}
+
+#sidebar #side-menu .menu-children a {
+  font-size: 0.95rem;
+}
+
+#sidebar #side-menu .menu-children a:hover {
+  color: #000 !important;
+  background-color: #fff;
+  border-color: 0.5px solid #adadad;
+}
+
+@media (min-width: 992px) {
+  #sidebar {
+    height: 100vh;
+  }
+
+  #sidebar .navbar-collapse#side-menu {
+    display: -ms-flexbox !important;
+    display: -webkit-box !important;
+    display: flex !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+  }
+
+  #sidebar .navbar-brand {
+    width: 100%;
+  }
+}
+

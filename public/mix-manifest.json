@@ -1,3 +1,4 @@
 {
-    "/www/css/login.css": "/www/css/login.css"
+    "/www/css/login.css": "/www/css/login.css",
+    "/_admin/css/home.css": "/_admin/css/home.css"
 }

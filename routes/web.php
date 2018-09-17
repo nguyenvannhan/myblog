@@ -21,3 +21,7 @@ Route::get('/register', 'AccountController@getRegister')->name('get_register_rou
 Route::post('/register', 'AccountConotroller@postRegister')->name('poste_register_route');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')->namespace('Admin')->group(function() {
+    Route::get('/', 'HomeController@index');
+});
