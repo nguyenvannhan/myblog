@@ -46,3 +46,31 @@
   }
 }
 
+#topbar {
+  background-color: #adadad;
+}
+
+#topbar a {
+  text-decoration: none;
+}
+
+#topbar a:hover {
+  background-color: #8c8c8c;
+}
+
+#topbar .dropdown-menu {
+  margin-top: 0px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  right: 0.5rem;
+  padding: 0;
+}
+
+#topbar .dropdown-menu a.dropdown-item {
+  padding: 0.5rem 0.8rem;
+}
+
+#topbar .dropdown-menu a.dropdown-item:hover {
+  background-color: #e8e8e8;
+}
+
