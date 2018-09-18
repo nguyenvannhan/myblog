@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index() {
         $this->data['pageTitle'] = 'Home';
 
-        return view('admin.pages.index')->with($this->data);
+        return view('admin.pages.home.index')->with($this->data);
     }
 
 }

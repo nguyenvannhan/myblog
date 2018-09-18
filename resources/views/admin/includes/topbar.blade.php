@@ -1,5 +1,5 @@
- <div class="bg-secondary p-2 text-white font-weight-bold">
-    DASHBOARD
+ <div class="bg-secondary p-2 text-white font-weight-bold text-uppercase">
+    {{ $breadcrumb }}
 </div>
 <div class="d-flex align-items-center dropdown show">
     <a class="text-white p-2 align-self-center dropdown-toggle" href="#" role="button" id="dropdownProfileMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
