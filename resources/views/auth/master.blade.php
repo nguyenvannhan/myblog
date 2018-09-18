@@ -15,7 +15,7 @@
 <body class="bg-secondary" id="starter-page">
     @yield('content')
     
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('vendors/jquery/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('vendors/bootstrap/js/bootstrap.min.js') }}"></script>
     <script>
