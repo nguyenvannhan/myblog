@@ -22,4 +22,7 @@ class AccountController extends Controller {
         return view('auth.register')->with($this->data);
     }
 
+    public function test() {
+        return "123";
+    }
 }
