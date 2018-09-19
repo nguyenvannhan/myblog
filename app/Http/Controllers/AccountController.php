@@ -23,6 +23,6 @@ class AccountController extends Controller {
     }
 
     public function test() {
-        return "123";
+        return "1234";
     }
 }
