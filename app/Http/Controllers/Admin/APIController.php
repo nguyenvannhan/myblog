@@ -13,6 +13,6 @@ class APIController extends Controller
     public function getCategoryItemFromID($id) {
         $categoryItem = Category::find($id);
 
-        return Response::json(['categoryItem' => $categoryItem]);
+        return response()->json(['categoryItem' => $categoryItem]);
     }
 }

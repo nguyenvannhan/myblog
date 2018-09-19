@@ -24,9 +24,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->namespace('Admin')->group(function() {
     Route::get('/', 'HomeController@index');
-
+    
     // Admin Category Management
     Route::prefix('category')->group(function() {
         Route::get('/', 'CategoryController@index');
+
+        Route::get('/get-add-modal/{id?}', 'CategoryController@getViewModal');
     });
 });

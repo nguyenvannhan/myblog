@@ -18,8 +18,10 @@
     <link rel="stylesheet" href="{{ asset('vendors/datatables/plugins/css/dataTables.bootstrap4.min.css') }}">
     {{-- Animate CSS --}}
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    {{-- Common CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     {{-- Style --}}
-    <link rel="stylesheet" href="{{ asset('_admin/css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('_admin/css/main.css') }}">
 </head>
 <body class="bg-light">
     

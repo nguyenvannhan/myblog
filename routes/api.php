@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('Admin')->group(function() {
-    Route::prefix('category', function() {
+    Route::prefix('category')->group(function() {
         Route::get('/get-from-id/{id}', 'APIController@getCategoryItemFromID');
     });
 });

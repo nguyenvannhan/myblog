@@ -79,8 +79,10 @@
     
     .dropdown-menu {
         margin-top: 0px;
-        border-top-right-radius: 0px;
-        border-top-left-radius: 0px;
+        border-top: {
+            right-radius: 0px;
+            left-radius: 0px;
+        }
         right: 0.5rem;
         padding: 0;
         

@@ -11,7 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/www/login.scss', 'public/www/css/')
+mix
+    // Common
+    .sass('resources/sass/common.scss', 'public/css/')
+
+    // WWW
+    .sass('resources/sass/www/login.scss', 'public/www/css/')
 
     // Admin
-    .sass('resources/sass/admin/home.scss', 'public/_admin/css');
+    .sass('resources/sass/admin/main.scss', 'public/_admin/css');

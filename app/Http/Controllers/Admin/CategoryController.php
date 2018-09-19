@@ -18,7 +18,13 @@ class CategoryController extends Controller
         return view('admin.pages.category.index')->with($this->data);
     }
 
-    public function getViewModal($id) {
-        
+    public function getViewModal($id = 0) {
+        $apiController = new APIController;
+
+        $categoryItem = $apiController->getCategoryItemFromID(1);
+
+        $view = view('admin.pages.category.modal-add')->with(['categoryItem']);
+
+        return $view;
     }
 }

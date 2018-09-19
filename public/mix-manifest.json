@@ -1,4 +1,5 @@
 {
+    "/css/common.css": "/css/common.css",
     "/www/css/login.css": "/www/css/login.css",
-    "/_admin/css/home.css": "/_admin/css/home.css"
+    "/_admin/css/main.css": "/_admin/css/main.css"
 }
