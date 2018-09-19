@@ -25,4 +25,8 @@ class AccountController extends Controller {
     public function test() {
         return "123";
     }
+
+    public function test2() {
+        return "234";
+    }
 }
