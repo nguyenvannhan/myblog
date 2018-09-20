@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <label for="ip_password">Password: </label>
-                        <input type="text" class="form-control" id="ip_password" placeholder="Password" name="password">
+                        <input type="password" class="form-control" id="ip_password" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
                         <label for="ip_password">Role: </label>
