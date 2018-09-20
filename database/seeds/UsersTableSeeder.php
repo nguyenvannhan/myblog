@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -11,9 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       $this->call(UserTableSeeder::class);
-
-       
+        DB::table('users')->insert([[
+            'role_id' => "1",
+            'name' => 'Phuong',
+            'email' => 'daothiphuong1997@gmail.com',
+            'password' => bcrypt('matkhau')
+        ]]);
       
        
         // $this->call(RolesTableSeeder::class);
