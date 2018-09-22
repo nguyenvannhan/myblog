@@ -12,4 +12,12 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $dates = ['deleted_at'];
+
+    public function getParentCategory() {
+        return $this->belongsTo('App\Models\Category', 'parent_id', 'id');
+    }
+
+      public function getChildrenCategory() {
+        return $this->hasMany('App\Models\Category', 'parent_id', 'id');
+    }
 }

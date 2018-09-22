@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\APIController;
 use HTML;
 
+use App\Models\Category;
+
 class CategoryController extends Controller
 {
     public function index() {
@@ -21,7 +23,13 @@ class CategoryController extends Controller
     public function getViewModal($id = 0) {
         $apiController = new APIController;
 
-        $categoryItem = $apiController->getCategoryItemFromID(1);
+        $categoryItem = $apiController->getCategoryItemFromID($id);
+
+        if(is_null($categoryItem)) {
+            $categoryItem = new Category;
+            $categoryItem->name = '';
+            $categoryItem->parent_id = 0;
+        }
 
         $view = view('admin.pages.category.modal-add')->with(['categoryItem']);
 
