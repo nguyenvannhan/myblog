@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row no-gutters py-2">
-    <a href="#add" data-toggle="modal" data-function="add" class="btn btn-primary ml-auto" role="button">Add New</a>
+    <a href="#add" data-toggle="modal" data-id="0" class="btn btn-primary ml-auto" role="button">Add New</a>
 </div>
 <div class="row no-gutters py-2">
     <div class="table-responsive">
@@ -17,53 +17,22 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($categoryList as $item)
                 <tr>
-                    <td class="text-center">1</td>
-                    <td>Category 1</td>
-                    <td></td>
+                    <td class="text-center">{{ $item->id }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ !is_null($item->getParentCategory) ? $item->getParentCategory->name : '' }}</td>
                     <td class="text-center">
                         <a href="#">
-                            <i class="fas fa-check-circle text-success"></i>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <a class="px-1" href="#">
-                            <i class="fas fa-edit text-primary"></i>
-                        </a>
-                        <a class="px-1" href="#">
-                            <i class="fas fa-trash-alt text-danger"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>Category 1</td>
-                    <td></td>
-                    <td class="text-center">
-                        <a href="#">
+                            @if(!is_null($item->deleted_at))
                             <i class="fas fa-times-circle text-danger"></i>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <a class="px-1" href="#">
-                            <i class="fas fa-edit text-primary"></i>
-                        </a>
-                        <a class="px-1" href="#">
-                            <i class="fas fa-trash-alt text-danger"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>Category 1</td>
-                    <td>Category 1</td>
-                    <td class="text-center">
-                        <a href="#">
+                            @else
                             <i class="fas fa-check-circle text-success"></i>
+                            @endif
                         </a>
                     </td>
                     <td class="text-center">
-                        <a class="px-1" href="#">
+                        <a class="px-1" href="#add" data-toggle="modal" data-id="{{ $item->id }}" role="button">
                             <i class="fas fa-edit text-primary"></i>
                         </a>
                         <a class="px-1" href="#">
@@ -71,60 +40,7 @@
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>Category 1</td>
-                    <td></td>
-                    <td class="text-center">
-                        <a href="#">
-                            <i class="fas fa-times-circle text-danger"></i>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <a class="px-1" href="#">
-                            <i class="fas fa-edit text-primary"></i>
-                        </a>
-                        <a class="px-1" href="#">
-                            <i class="fas fa-trash-alt text-danger"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>Category 1</td>
-                    <td></td>
-                    <td class="text-center">
-                        <a href="#">
-                            <i class="fas fa-check-circle text-success"></i>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <a class="px-1" href="#">
-                            <i class="fas fa-edit text-primary"></i>
-                        </a>
-                        <a class="px-1" href="#">
-                            <i class="fas fa-trash-alt text-danger"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td>Category 1</td>
-                    <td>Category 1</td>
-                    <td class="text-center">
-                        <a href="#">
-                            <i class="fas fa-times-circle text-danger"></i>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <a class="px-1" href="#">
-                            <i class="fas fa-edit text-primary"></i>
-                        </a>
-                        <a class="px-1" href="#">
-                            <i class="fas fa-trash-alt text-danger"></i>
-                        </a>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

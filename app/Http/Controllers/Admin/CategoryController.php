@@ -15,25 +15,37 @@ class CategoryController extends Controller
     public function index() {
         $this->data['scripts'] = 
         HTML::script('_admin/js/category.js');
-
-         $this->data['pageTitle'] = 'Category Management';
-
+        
+        $this->data['pageTitle'] = 'Category Management';
+        $this->data['categoryList'] = Category::with('getParentCategory')->get();
+        
         return view('admin.pages.category.index')->with($this->data);
     }
-
+    
     public function getViewModal($id = 0) {
-        $apiController = new APIController;
-
-        $categoryItem = $apiController->getCategoryItemFromID($id);
-
+        $categoryItem = Category::find($id);
+        
         if(is_null($categoryItem)) {
-            $categoryItem = new Category;
-            $categoryItem->name = '';
-            $categoryItem->parent_id = 0;
+            $categoryItem = Category::orderBy('id', 'desc')->first();
+            
+            if(!is_null($categoryItem->updated_at)) {
+                $categoryItem = new Category;
+                $categoryItem->name = '';
+                $categoryItem->parent_id = 0;
+                $categoryItem->timestamps = false;
+                $categoryItem->created_at = date('Y-m-d H:i:s');
+                $categoryItem->updated_at = NULL;
+                $categoryItem->save();
+            }
         }
-
-        $view = view('admin.pages.category.modal-add')->with(['categoryItem']);
-
-        return $view;
+        
+        $categoryList = Category::all();
+        
+        $this->data['categoryItem'] = $categoryItem;
+        $this->data['categoryList'] = $categoryList;
+        
+        $view = view('admin.pages.category.modal-add')->with($this->data)->render();
+        
+        return response()->json(['view' => $view]);
     }
 }

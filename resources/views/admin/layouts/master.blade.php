@@ -62,8 +62,11 @@
     <script src="{{ asset('vendors/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('vendors/datatables/plugins/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendors/datatables/plugins/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script>var base_url = "{{ URL::to('/') }}"</script>
     <script src="{{ asset('_admin/js/main.js') }}"></script>
 
     {{ isset($scripts) ? $scripts : '' }}
+
+    @yield('scripts')
 </body>
 </html>
