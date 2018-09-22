@@ -36,4 +36,11 @@ class AccountController extends Controller {
 
         return view('auth.register')->with($this->data);
     }
+
+    public function getLogout(){
+        
+        Auth::logout();
+        
+        return redirect('/');
+    }
 }
