@@ -28,7 +28,8 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
     
     // Admin Category Management
     Route::prefix('category')->group(function() {
-        Route::get('/', 'CategoryController@index');
+        Route::get('/', 'CategoryController@index')->name('get_index_category_admin_route');
+        Route::post('/update', 'CategoryController@postUpdate')->name('post_update_category_admin_route');
 
         Route::get('/get-add-modal/{id?}', 'CategoryController@getViewModal');
     });

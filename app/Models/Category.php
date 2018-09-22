@@ -13,6 +13,16 @@ class Category extends Model
 
     protected $dates = ['deleted_at'];
 
+    public static function getAll($order = 'asc') {
+        $order = strtoupper($order);
+
+        if($order != 'ASC' && $order != 'DESC') {
+            $order = 'ASC';
+        }
+
+        return self::whereNotNull('updated_at')->orderBy('id', $order)->get();
+    }
+
     public function getParentCategory() {
         return $this->belongsTo('App\Models\Category', 'parent_id', 'id');
     }

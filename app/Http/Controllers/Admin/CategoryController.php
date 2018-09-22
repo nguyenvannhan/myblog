@@ -39,7 +39,7 @@ class CategoryController extends Controller
             }
         }
         
-        $categoryList = Category::all();
+        $categoryList = Category::getAll();
         
         $this->data['categoryItem'] = $categoryItem;
         $this->data['categoryList'] = $categoryList;
@@ -47,5 +47,14 @@ class CategoryController extends Controller
         $view = view('admin.pages.category.modal-add')->with($this->data)->render();
         
         return response()->json(['view' => $view]);
+    }
+
+    public function postUpdate(Request $request) {
+        $categoryItem = Category::find($request->id);
+        $categoryItem->name = $request->name;
+        $categoryItem->parent_id = $request->parent_id;
+        $categoryItem->save();
+
+        return redirect()->route('get_index_category_admin_route');
     }
 }

@@ -49,7 +49,8 @@
 <div id="add" class="modal zoomIn animated" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form action="#" method="POST">
+            <form action="{{ route('post_update_category_admin_route') }}" method="POST">
+                @csrf
                 <div class="modal-header">
                     <h5 class="modal-title"><b>Modal title</b></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
