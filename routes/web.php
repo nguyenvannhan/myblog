@@ -23,7 +23,7 @@ Route::get('/logout', 'AccountController@getLogout')->name('get_logout_route');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->namespace('Admin')->group(function() {
+Route::prefix('admin')->namespace('Admin')->middleware('MiddlewareLogin')->group(function() {
     Route::get('/', 'HomeController@index');
     
     // Admin Category Management
