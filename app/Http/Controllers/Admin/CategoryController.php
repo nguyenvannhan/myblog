@@ -51,10 +51,25 @@ class CategoryController extends Controller
 
     public function postUpdate(Request $request) {
         $categoryItem = Category::find($request->id);
+
+        if(is_null($categoryItem->updated_at)) {
+            $error = 'Create new category successfully';
+        } else {
+            $error = 'Update category successfully';
+        }
+
         $categoryItem->name = $request->name;
         $categoryItem->parent_id = $request->parent_id;
         $categoryItem->save();
 
-        return redirect()->route('get_index_category_admin_route');
+        return redirect()->route('get_index_category_admin_route')->with('d_action', ['result' => 1, 'error' => $error]);
+    }
+
+    public function postDelete(Request $request) {
+        $categoryItem = Category::find($request->id);
+
+        $result = $categoryItem->deleteCompletely();
+
+        return redirect()->route('get_index_category_admin_route')->with('d_action', $result);
     }
 }

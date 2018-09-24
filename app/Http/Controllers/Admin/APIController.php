@@ -11,7 +11,7 @@ class APIController extends Controller
 {
     // Category API
     public function getCategoryItemFromID($id) {
-        $categoryItem = Category::find($id);
+        $categoryItem = Category::with('getParentCategory')->find($id);
 
         return response()->json(['categoryItem' => $categoryItem]);
     }

@@ -30,4 +30,12 @@ class Category extends Model
       public function getChildrenCategory() {
         return $this->hasMany('App\Models\Category', 'parent_id', 'id');
     }
+
+    public function deleteCompletely() {
+        if(self::forceDelete()) {
+            return ['result' => 1, 'error' => 'Delete Category Successfully'];
+        } else {
+            return ['result' => 0, 'error' => 'Errors when delete category'];
+        }
+    }
 }

@@ -4,6 +4,14 @@
 <div class="row no-gutters py-2">
     <a href="#add" data-toggle="modal" data-id="0" class="btn btn-primary ml-auto" role="button">Add New</a>
 </div>
+@if(session('d_action'))
+<div class="row no-gutters py-2 message-div">
+    @php $action = session('d_action'); @endphp
+    <div class="alert {{ $action['result'] ? 'alert-success' : 'alert-danger' }}">
+        {{ $action['error'] }}
+    </div>
+</div>
+@endif
 <div class="row no-gutters py-2">
     <div class="table-responsive">
         <table class="datatables table table-stripped table-bordered" style="font-size: 0.9rem;">
@@ -35,7 +43,7 @@
                         <a class="px-1" href="#add" data-toggle="modal" data-id="{{ $item->id }}" role="button">
                             <i class="fas fa-edit text-primary"></i>
                         </a>
-                        <a class="px-1" href="#">
+                        <a class="px-1" href="#delete" data-toggle="modal" role="button" data-id="{{ $item->id }}">
                             <i class="fas fa-trash-alt text-danger"></i>
                         </a>
                     </td>
@@ -46,7 +54,7 @@
     </div>
 </div>
 
-<div id="add" class="modal zoomIn animated" tabindex="-1" role="dialog">
+<div id="add" class="modal fade zoomIn animated" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <form action="{{ route('post_update_category_admin_route') }}" method="POST">
@@ -78,6 +86,30 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="delete" class="modal fade zoomIn animated" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form action="{{ route('post_delete_category_admin_route') }}" method="POST">
+                @csrf
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title text-white"><b>DELETE SELECTED CATEGORY</b></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Confirm</button>
                 </div>
             </form>
         </div>

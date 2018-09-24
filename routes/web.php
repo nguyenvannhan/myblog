@@ -30,6 +30,7 @@ Route::prefix('admin')->namespace('Admin')->middleware('MiddlewareLogin')->group
     Route::prefix('category')->group(function() {
         Route::get('/', 'CategoryController@index')->name('get_index_category_admin_route');
         Route::post('/update', 'CategoryController@postUpdate')->name('post_update_category_admin_route');
+        Route::post('/delete', 'CategoryController@postDelete')->name('post_delete_category_admin_route');
 
         Route::get('/get-add-modal/{id?}', 'CategoryController@getViewModal');
     });
