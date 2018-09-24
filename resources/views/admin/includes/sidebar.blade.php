@@ -20,14 +20,19 @@
                     </a>
                     <div class="collapse" id="post-child" >
                         <ul class="nav flex-column p-0 menu-children">
-                            <li class="nav-item seconde-level">
+                            <li class="nav-item second-level">
                                 <a class="nav-link text-white" href="#">
                                     All
                                 </a>
                             </li>
-                            <li class="nav-item seconde-level">
+                            <li class="nav-item second-level">
                                 <a class="nav-link text-white" href="#">
                                     New
+                                </a>
+                            </li>
+                            <li class="nav-item second-level">
+                                <a class="nav-link text-white" href="{{ URL::to('admin/category') }}">
+                                    Category
                                 </a>
                             </li>
                         </ul>

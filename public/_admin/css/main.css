@@ -28,6 +28,7 @@
 
 #sidebar #side-menu .menu-children a {
   font-size: 0.95rem;
+  padding-left: 2rem;
 }
 
 #sidebar #side-menu .menu-children a:hover {
