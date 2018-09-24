@@ -12,6 +12,22 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $dates = ['deleted_at'];
+   
+    // Relationship
+    public function getParentCategory() {
+        return $this->belongsTo('App\Models\Category', 'parent_id', 'id');
+    }
+
+      public function getChildrenCategory() {
+        return $this->hasMany('App\Models\Category', 'parent_id', 'id');
+    }
+
+    public function Posts() {
+        return $this->belongsToMany('App\Models\Post')->using('App\Models\Post_Category');
+    }
+
+
+    // Static function
 
     public static function getAll($order = 'asc') {
         $order = strtoupper($order);
@@ -21,14 +37,6 @@ class Category extends Model
         }
 
         return self::whereNotNull('updated_at')->orderBy('id', $order)->get();
-    }
-
-    public function getParentCategory() {
-        return $this->belongsTo('App\Models\Category', 'parent_id', 'id');
-    }
-
-      public function getChildrenCategory() {
-        return $this->hasMany('App\Models\Category', 'parent_id', 'id');
     }
 
     public function deleteCompletely() {
