@@ -18,10 +18,13 @@
     <link rel="stylesheet" href="{{ asset('vendors/datatables/plugins/css/dataTables.bootstrap4.min.css') }}">
     {{-- Animate CSS --}}
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    {{-- Select 2 --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/select2/css/select2.min.css') }}">
     {{-- Common CSS --}}
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     {{-- Style --}}
     <link rel="stylesheet" href="{{ asset('_admin/css/main.css') }}">
+    {!! isset($stylesheets) ? $stylesheets : '' !!}
 </head>
 <body class="bg-light">
     
@@ -62,11 +65,12 @@
     <script src="{{ asset('vendors/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('vendors/datatables/plugins/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendors/datatables/plugins/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('vendors/select2/js/select2.min.js') }}"></script>
     <script>var base_url = "{{ URL::to('/') }}"</script>
     <script src="{{ asset('_admin/js/main.js') }}"></script>
-
-    {{ isset($scripts) ? $scripts : '' }}
-
+    
+    {!! isset($scripts) ? $scripts : '' !!}
+    
     @yield('scripts')
 </body>
 </html>

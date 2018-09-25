@@ -34,4 +34,13 @@ Route::prefix('admin')->namespace('Admin')->middleware('MiddlewareLogin')->group
 
         Route::get('/get-add-modal/{id?}', 'CategoryController@getViewModal');
     });
+
+    // Admin Post Management
+    Route::prefix('post')->group(function() {
+        Route::get('/', 'PostController@index')->name('get_index_post_admin_route');
+
+        Route::get('/add', 'PostController@getAdd')->name('get_add_post_admin_route');
+        Route::post('/add', 'PostController@postAdd')->name('post_add_post_admin_route');
+
+    });
 });

@@ -7,4 +7,6 @@ $(document).ready(function () {
 
     // Iinit DataTables
     $('.datatables').DataTable();
+
+    $('.select2').select2();
 });
